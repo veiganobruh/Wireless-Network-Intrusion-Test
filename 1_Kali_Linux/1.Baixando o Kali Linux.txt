@@ -1,0 +1,8 @@
+Atenção:
+
+Após a gravação desta aula, foram lançadas novas versões do Kali, recomendo sempre utilizar último Kali lançado para obter os pacotes mais atualizados. Não se esqueça de atualizar seu Kali após baixado.
+Os repositórios do Kali 1 foram tirados do ar, por isso não recomendo sua utilização.
+
+Após baixar e instalar é importante fazer o update dos pacotes, acompanhe as próximas aulas para mais detalhes:
+
+# apt-get update# apt-get dist-upgrade# reboot

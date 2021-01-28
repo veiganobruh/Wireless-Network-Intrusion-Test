@@ -1,0 +1,21 @@
+Linha de Comando:
+
+Checando dispositivos de rede:
+
+# ifconfig
+
+Ativando a interface de monitoramento:
+
+# airmon-ng start wlan0
+
+Desativando a interface de monitoramento:
+
+# airmon-ng stop wlan0mon
+
+Fazendo monitoramento do ar:
+
+# airodump-ng wlan0mon
+
+Fazendo monitoramento com restrição de canal e BSSID
+
+# airodump-ng wlan0mon -c <canal> --bssid <bssid da rede>

